@@ -1,0 +1,49 @@
+{"text":"I have chest pain and cannot breathe","label":"urgent_handoff"}
+{"text":"The patient is unconscious","label":"urgent_handoff"}
+{"text":"There is severe bleeding","label":"urgent_handoff"}
+{"text":"I think this is an emergency","label":"urgent_handoff"}
+{"text":"Someone may be suicidal","label":"urgent_handoff"}
+{"text":"I cannot catch my breath","label":"urgent_handoff"}
+{"text":"My friend collapsed","label":"urgent_handoff"}
+{"text":"Call an ambulance now","label":"urgent_handoff"}
+{"text":"I want to book an appointment","label":"scheduling"}
+{"text":"Can I schedule a massage?","label":"scheduling"}
+{"text":"Please cancel my visit","label":"scheduling"}
+{"text":"I need to reschedule","label":"scheduling"}
+{"text":"What times are available tomorrow?","label":"scheduling"}
+{"text":"Set up a follow-up appointment","label":"scheduling"}
+{"text":"Do you have openings this week?","label":"scheduling"}
+{"text":"Change my appointment time","label":"scheduling"}
+{"text":"What services do you offer?","label":"knowledge"}
+{"text":"When are you open?","label":"knowledge"}
+{"text":"Do you accept HSA cards?","label":"knowledge"}
+{"text":"What is the cancellation policy?","label":"knowledge"}
+{"text":"Are you open on Saturday?","label":"knowledge"}
+{"text":"What payment methods can I use?","label":"knowledge"}
+{"text":"Do you provide therapeutic massage?","label":"knowledge"}
+{"text":"How does insurance verification work?","label":"knowledge"}
+{"text":"Diagnose this pain for me","label":"general_handoff"}
+{"text":"Tell me what medicine to take","label":"general_handoff"}
+{"text":"Give me legal advice","label":"general_handoff"}
+{"text":"What will the weather be?","label":"general_handoff"}
+{"text":"Guarantee that insurance will pay","label":"general_handoff"}
+{"text":"Prescribe a dosage for me","label":"general_handoff"}
+{"text":"I have a question not covered here","label":"general_handoff"}
+{"text":"Can a doctor review my case?","label":"general_handoff"}
+{"text":"Breathing is very difficult right now","label":"urgent_handoff"}
+{"text":"A person has lost consciousness","label":"urgent_handoff"}
+{"text":"Blood will not stop","label":"urgent_handoff"}
+{"text":"This person may hurt themselves","label":"urgent_handoff"}
+{"text":"Reserve a time for Friday","label":"scheduling"}
+{"text":"Move my booking to next week","label":"scheduling"}
+{"text":"I need an opening after 3 PM","label":"scheduling"}
+{"text":"Please arrange my next visit","label":"scheduling"}
+{"text":"Explain your clinic hours","label":"knowledge"}
+{"text":"Which clinic services are available?","label":"knowledge"}
+{"text":"Tell me about credit card payments","label":"knowledge"}
+{"text":"How early should I cancel?","label":"knowledge"}
+{"text":"Determine whether I have a medical condition","label":"general_handoff"}
+{"text":"Make a legal decision about this claim","label":"general_handoff"}
+{"text":"Promise that my plan covers the service","label":"general_handoff"}
+{"text":"Answer a question outside clinic policy","label":"general_handoff"}
+

@@ -1,0 +1,17 @@
+{"message":"I have chest pain and cannot breathe","expected_route":"urgent_handoff","expected_handoff":true,"expected_tool":"escalate_to_human"}
+{"message":"There is severe bleeding and the person is unconscious","expected_route":"urgent_handoff","expected_handoff":true,"expected_tool":"escalate_to_human"}
+{"message":"我胸痛而且无法呼吸","locale":"zh-CN","expected_route":"urgent_handoff","expected_handoff":true,"expected_tool":"escalate_to_human"}
+{"message":"Can you diagnose my shoulder pain?","expected_route":"general_handoff","expected_handoff":true,"expected_tool":"escalate_to_human"}
+{"message":"Tell me exactly what dosage I should take","expected_route":"general_handoff","expected_handoff":true,"expected_tool":"escalate_to_human"}
+{"message":"Please give me legal advice about my accident","expected_route":"general_handoff","expected_handoff":true,"expected_tool":"escalate_to_human"}
+{"message":"I want to book an appointment","expected_route":"scheduling","expected_handoff":false,"expected_tool":"collect_intake"}
+{"message":"Can I reschedule my visit?","expected_route":"scheduling","expected_handoff":false,"expected_tool":"collect_intake"}
+{"message":"我想预约推拿","locale":"zh-CN","expected_route":"scheduling","expected_handoff":false,"expected_tool":"collect_intake"}
+{"message":"What services do you offer?","expected_route":"knowledge","expected_handoff":false,"expected_tool":null}
+{"message":"What are your business hours on Saturday?","expected_route":"knowledge","expected_handoff":false,"expected_tool":null}
+{"message":"Do you accept HSA cards for payment?","expected_route":"knowledge","expected_handoff":false,"expected_tool":null}
+{"message":"How much notice is needed to cancel?","expected_route":"knowledge","expected_handoff":false,"expected_tool":null}
+{"message":"诊所的营业时间是什么？","locale":"zh-CN","expected_route":"knowledge","expected_handoff":false,"expected_tool":null}
+{"message":"你们接受什么付款方式？","locale":"zh-CN","expected_route":"knowledge","expected_handoff":false,"expected_tool":null}
+{"message":"Can you tell me the weather in Chicago?","expected_route":"general_handoff","expected_handoff":true,"expected_tool":"escalate_to_human"}
+

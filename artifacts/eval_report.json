@@ -1,0 +1,8 @@
+{
+  "cases": 16,
+  "route_accuracy": 1.0,
+  "handoff_accuracy": 1.0,
+  "tool_accuracy": 1.0,
+  "grounded_answer_rate": 1.0,
+  "failures": []
+}

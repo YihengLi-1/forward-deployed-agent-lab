@@ -1,0 +1,51 @@
+[
+  {
+    "document_id": "svc-001",
+    "title": "Services offered",
+    "text": "Northstar Clinic offers initial consultations, follow-up visits, therapeutic massage, and mobility sessions. Service suitability is confirmed by qualified staff; the assistant does not diagnose conditions.",
+    "locale": "en-US"
+  },
+  {
+    "document_id": "ops-001",
+    "title": "Business hours",
+    "text": "The clinic is open Monday through Friday from 9:00 AM to 6:00 PM and Saturday from 10:00 AM to 3:00 PM. It is closed on Sunday.",
+    "locale": "en-US"
+  },
+  {
+    "document_id": "ops-002",
+    "title": "Scheduling policy",
+    "text": "Appointment requests are not confirmed until a staff member verifies availability. Customers should provide a preferred date, time window, service, and callback number.",
+    "locale": "en-US"
+  },
+  {
+    "document_id": "pay-001",
+    "title": "Payment and insurance",
+    "text": "The clinic accepts major credit cards and HSA or FSA cards. Insurance benefits vary, and staff must verify eligibility before quoting coverage or patient responsibility.",
+    "locale": "en-US"
+  },
+  {
+    "document_id": "ops-003",
+    "title": "Cancellation policy",
+    "text": "Customers should contact the clinic at least 24 hours before an appointment to cancel or request a new time. A staff member confirms all changes.",
+    "locale": "en-US"
+  },
+  {
+    "document_id": "svc-zh-001",
+    "title": "服务项目",
+    "text": "Northstar Clinic 提供初次咨询、复诊、推拿和活动能力训练。具体项目是否适合客户须由专业人员确认；助手不会进行诊断。",
+    "locale": "zh-CN"
+  },
+  {
+    "document_id": "ops-zh-001",
+    "title": "营业时间",
+    "text": "诊所周一至周五上午九点到下午六点营业，周六上午十点到下午三点营业，周日休息。",
+    "locale": "zh-CN"
+  },
+  {
+    "document_id": "pay-zh-001",
+    "title": "付款与保险",
+    "text": "诊所接受主要信用卡以及 HSA 或 FSA 卡。保险福利因人而异，工作人员核验后才能说明保险范围和个人费用。",
+    "locale": "zh-CN"
+  }
+]
+

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forward-deployed-agent-lab"
+version = "0.1.0"
+description = "A synthetic, production-shaped service-business agent built to demonstrate forward-deployed AI engineering."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "mcp>=1.12,<2",
+  "pydantic>=2.10,<3",
+  "uvicorn[standard]>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1",
+  "pytest>=8.3,<9",
+  "pyyaml>=6.0,<7",
+]
+train = [
+  "torch>=2.6,<3",
+  "transformers>=4.49,<6",
+]
+
+[project.scripts]
+field-agent-api = "field_agent_lab.api:run"
+field-agent-mcp = "field_agent_lab.mcp_server:run"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
