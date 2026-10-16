@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forward-Deployed Agent Lab — live demo</title>
+<style>
+  :root { --bg:#f7f7f5; --card:#fff; --ink:#1d1d1f; --muted:#6b6b70; --accent:#0b6e4f; --warn:#b54708; --line:#e4e4e7; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#111113; --card:#1c1c1f; --ink:#ededef; --muted:#a1a1aa; --accent:#3fb68b; --warn:#f2a65a; --line:#2e2e33; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:32px 16px 48px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  p.lead { color:var(--muted); margin:0 0 20px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  form { display:flex; gap:8px; flex-wrap:wrap; }
+  label { position:absolute; left:-9999px; }
+  input { flex:1 1 260px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--bg); color:var(--ink); font-size:1rem; }
+  button { padding:10px 16px; border:0; border-radius:8px; background:var(--accent); color:#fff; font-weight:600; cursor:pointer; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .chips button { background:transparent; color:var(--accent); border:1px solid var(--line); font-weight:500; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:999px; font-size:.8rem; font-weight:600; border:1px solid var(--line); }
+  .handoff { color:var(--warn); }
+  ul { padding-left:20px; } code { font-size:.85rem; }
+  footer { color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Forward-Deployed Agent Lab</h1>
+  <p class="lead">A service-business agent with grounded answers, explicit tool calls, and human handoff. All data is synthetic (fictional "Northstar Clinic"); no LLM key or paid API is used.</p>
+  <div class="card">
+    <form id="f">
+      <label for="m">Message</label>
+      <input id="m" name="m" placeholder="Ask the front desk something…" autocomplete="off" required maxlength="500">
+      <button type="submit">Send</button>
+    </form>
+    <div class="chips" aria-label="Example questions">
+      <button type="button">Do you accept HSA cards?</button>
+      <button type="button">I want to book an appointment</button>
+      <button type="button">When are you open?</button>
+      <button type="button">I have chest pain right now</button>
+    </div>
+  </div>
+  <div class="card" id="out" aria-live="polite"><p class="lead">Responses appear here with route, citations, and tool calls.</p></div>
+  <footer>Code: <a href="https://github.com/YihengLi-1/forward-deployed-agent-lab">github.com/YihengLi-1/forward-deployed-agent-lab</a> · API docs: <a href="/docs">/docs</a> · Built by Yiheng Li</footer>
+</main>
+<script>
+const out = document.getElementById('out'), input = document.getElementById('m');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function ask(msg) {
+  out.innerHTML = '<p class="lead">Thinking…</p>';
+  try {
+    const r = await fetch('/v1/agent/respond', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({message: msg})});
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    let h = `<p><span class="tag">route: ${esc(d.route)}</span> ${d.handoff_required ? `<span class="tag handoff">human handoff: ${esc(d.handoff_reason || 'yes')}</span>` : ''}</p><p>${esc(d.answer)}</p>`;
+    if (d.citations.length) h += '<p><strong>Citations</strong></p><ul>' + d.citations.map(c => `<li>${esc(c.title)} — <em>${esc(c.excerpt)}</em></li>`).join('') + '</ul>';
+    if (d.tool_calls.length) h += '<p><strong>Tool calls</strong></p><ul>' + d.tool_calls.map(t => `<li><code>${esc(t.name)}(${esc(JSON.stringify(t.arguments))})</code></li>`).join('') + '</ul>';
+    out.innerHTML = h;
+  } catch (e) { out.innerHTML = `<p class="handoff">Request failed: ${esc(e.message)}</p>`; }
+}
+document.getElementById('f').addEventListener('submit', e => { e.preventDefault(); ask(input.value); });
+document.querySelectorAll('.chips button').forEach(b => b.addEventListener('click', () => { input.value = b.textContent; ask(b.textContent); }));
+</script>
+</body>
+</html>
